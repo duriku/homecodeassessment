@@ -1,6 +1,7 @@
 package com.jksoftware.service.impl;
 
+import com.jksoftware.model.Receipt;
+
 public interface CheckoutService {
-	// TODO: return money
-	int checkout();
+	Receipt checkout();
 }
