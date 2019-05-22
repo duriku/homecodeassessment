@@ -6,4 +6,8 @@ public abstract class OrderItem {
     protected Item item;
 
     public abstract Price getCost();
+
+    public Item getItem() {
+        return item;
+    }
 }

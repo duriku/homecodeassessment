@@ -1,4 +1,4 @@
-package com.jksoftware.service.impl;
+package com.jksoftware.service;
 
 import com.jksoftware.model.Receipt;
 

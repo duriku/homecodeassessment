@@ -8,5 +8,5 @@ public interface Discount {
 
     Price getDiscountValue();
 
-    String getDiscountName();
+    String getDiscountName(); // printing
 }

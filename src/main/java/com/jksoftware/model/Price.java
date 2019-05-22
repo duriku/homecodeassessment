@@ -19,13 +19,12 @@ public class Price {
         this.value = new BigDecimal(value);
     }
 
-    public static Price add(final Price p1, final Price p2) {
-        return new Price(p1.getValue().add(p2.getValue()));
+    public Price add(final Price to) {
+        return new Price(this.value.add(to.value));
     }
 
-    public Price add(final Price to) {
-        this.value = this.value.add(to.value);
-        return this;
+    public Price subtract(final Price to) {
+        return new Price(this.value.subtract(to.value));
     }
 
     public Price multiple(final int times) {

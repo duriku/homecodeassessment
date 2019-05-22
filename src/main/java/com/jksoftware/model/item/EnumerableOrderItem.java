@@ -10,6 +10,10 @@ public class EnumerableOrderItem extends OrderItem {
         this.count = count;
     }
 
+    public int getCount() {
+        return count;
+    }
+
     @Override
     public Price getCost() {
         return this.item.getPrice().multiple(this.count);

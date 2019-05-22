@@ -1,6 +1,6 @@
 package com.jksoftware;
 
-import com.jksoftware.service.CheckoutServiceImpl;
+import com.jksoftware.service.impl.CheckoutServiceImpl;
 
 /**
  * Hello world!
