@@ -6,10 +6,12 @@ public class Item {
 
     private String name;
     private Price price;
+    private Boolean isMeasurable;
 
-    public Item(final String name, final Price price) {
+    public Item(final String name, final Price price, final Boolean isMeasurable) {
         this.name = name;
         this.price = price;
+        this.isMeasurable = isMeasurable;
     }
 
     public String getName() {
@@ -18,5 +20,9 @@ public class Item {
 
     public Price getPrice() {
         return price;
+    }
+
+    public Boolean getMeasurable() {
+        return isMeasurable;
     }
 }

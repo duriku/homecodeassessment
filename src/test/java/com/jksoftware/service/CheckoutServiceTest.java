@@ -1,9 +1,9 @@
 package com.jksoftware.service;
 
 import static com.google.common.collect.Lists.newArrayList;
-import static com.jksoftware.helper.TestDataProvider.DISCOUNTS.FIVE_DORITOS_FOR_THREE_POUNDS;
-import static com.jksoftware.helper.TestDataProvider.DISCOUNTS.THREE_COKE_FOR_TWO;
-import static com.jksoftware.helper.TestDataProvider.ITEMS.*;
+import static com.jksoftware.data.ReferenceData.DISCOUNTS.FIVE_DORITOS_FOR_THREE_POUNDS;
+import static com.jksoftware.data.ReferenceData.DISCOUNTS.THREE_COKE_FOR_TWO;
+import static com.jksoftware.data.ReferenceData.ITEMS.*;
 import com.jksoftware.model.Receipt;
 import com.jksoftware.model.item.EnumerableOrderItem;
 import com.jksoftware.model.item.MeasurableOrderItem;

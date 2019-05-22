@@ -7,6 +7,4 @@ public interface Discount {
     Item getDiscountedItem();
 
     Price getDiscountValue();
-
-    String getDiscountName(); // printing
 }

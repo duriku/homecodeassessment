@@ -1,6 +1,5 @@
 package com.jksoftware.service.impl;
 
-import static com.google.common.collect.Lists.newArrayList;
 import com.jksoftware.model.Price;
 import static com.jksoftware.model.Price.ZERO;
 import com.jksoftware.model.Receipt;
@@ -27,12 +26,11 @@ public class CheckoutServiceImpl implements CheckoutService {
 	@Override
 	public Receipt checkout() {
 		final Price subTotal = orderItems.stream()
-				.map(orderItem -> orderItem.getCost())
-				.reduce((p1, p2) -> p1.add(p2)).orElse(ZERO);
+				.map(OrderItem::getCost)
+				.reduce(Price::add).orElse(ZERO);
 		final Price totalSavingsOnDiscounts = calculateDiscounts();
 		final Price total = subTotal.subtract(totalSavingsOnDiscounts);
-		final Receipt receipt = new Receipt(total, subTotal, orderItems, newArrayList());
-		return receipt;
+		return new Receipt(total, subTotal, orderItems);
 	}
 
 	private Price calculateDiscounts() {
@@ -40,14 +38,11 @@ public class CheckoutServiceImpl implements CheckoutService {
 			return ZERO;
 		}
 
-		// TODO: INCLUDE ITEM INTO DISCOUNT RESPONSE FOR PRINTING
 		final List<Price> savedDiscountsOnProducts = this.discounts.stream()
 				.map(discount -> discountService.calculateDiscount(this.orderItems, discount))
 				.collect(Collectors.toList());
-		final Price totalSavingsOnDiscounts = savedDiscountsOnProducts
+		return savedDiscountsOnProducts
 				.stream()
-				.reduce((e1, e2) -> e1.add(e2)).orElse(ZERO);
-
-		return totalSavingsOnDiscounts;
+				.reduce(Price::add).orElse(ZERO);
 	}
 }

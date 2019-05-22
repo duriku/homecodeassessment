@@ -11,6 +11,10 @@ public class MeasurableOrderItem extends OrderItem {
         this.weight = weight;
     }
 
+    public Double getWeight() {
+        return weight;
+    }
+
     @Override
     public Price getCost() {
         return this.item.getPrice().multiple(this.weight);

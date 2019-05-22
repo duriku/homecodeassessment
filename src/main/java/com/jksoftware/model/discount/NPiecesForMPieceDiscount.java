@@ -28,11 +28,6 @@ public class NPiecesForMPieceDiscount implements NItemsDiscount {
 	}
 
 	@Override
-	public String getDiscountName() {
-		return name;
-	}
-
-	@Override
 	public int getItemCountForDiscount() {
 		return numberOfItemsToMatch;
 	}

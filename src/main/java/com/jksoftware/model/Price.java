@@ -35,10 +35,6 @@ public class Price {
         return new Price(this.value.multiply(new BigDecimal(times)));
     }
 
-    public BigDecimal getValue() {
-        return value;
-    }
-
     @Override
     public String toString() {
         return format("£%s", value.setScale(2, RoundingMode.HALF_UP).toString());
