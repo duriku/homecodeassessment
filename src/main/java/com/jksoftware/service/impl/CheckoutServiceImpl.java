@@ -12,7 +12,6 @@ import static java.util.Objects.isNull;
 import java.util.stream.Collectors;
 
 public class CheckoutServiceImpl implements CheckoutService {
-
 	private DiscountService discountService = new DiscountServiceImpl();
 	private List<OrderItem> orderItems;
 	private List<Discount> discounts;

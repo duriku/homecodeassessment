@@ -6,7 +6,6 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public class Price {
-
     public static final Price ZERO = new Price("0");
 
     private BigDecimal value;

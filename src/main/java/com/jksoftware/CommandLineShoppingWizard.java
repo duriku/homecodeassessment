@@ -16,7 +16,6 @@ import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
 class CommandLineShoppingWizard {
-
 	private static final String CHECKOUT = "checkout";
 
 	private BufferedReader reader;
@@ -95,13 +94,13 @@ class CommandLineShoppingWizard {
 	}
 
 	private String readLine() {
-		String name = null;
+		String line = "";
 		try {
-			name = reader.readLine();
+			line = reader.readLine();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return name;
+		return line;
 	}
 
 }

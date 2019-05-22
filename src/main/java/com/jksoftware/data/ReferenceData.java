@@ -24,10 +24,9 @@ public class ReferenceData {
 
 	public static class DISCOUNTS {
 		public static final NItemsDiscount THREE_COKE_FOR_TWO = new NPiecesForMPieceDiscount(COCA_COLA,
-				"Three Coke for two", 3, 2);
-
+				3, 2);
 		public static final NItemsDiscount FIVE_DORITOS_FOR_THREE_POUNDS = new NPiecesForXPriceDiscount(DORITOS,
-				"Five Doritos for three pounds", 5, new Price("3.00"));
+				5, new Price("3.00"));
 	}
 
 	private static Map<String, Item> initItemsMap() {

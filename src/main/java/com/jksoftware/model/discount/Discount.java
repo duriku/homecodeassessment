@@ -5,6 +5,5 @@ import com.jksoftware.model.item.Item;
 
 public interface Discount {
     Item getDiscountedItem();
-
     Price getDiscountValue();
 }

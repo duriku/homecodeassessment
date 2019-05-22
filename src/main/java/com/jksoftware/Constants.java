@@ -2,6 +2,10 @@ package com.jksoftware;
 
 public class Constants {
 
+	private Constants() {
+		// static methods only
+	}
+
 	public static final String BANNER = "*******************************************\n" +
 			"*              SUPERMARKET                *\n" +
 			"*                                         *\n" +

@@ -5,8 +5,11 @@ import static com.google.common.collect.Lists.newArrayList;
 import static com.jksoftware.data.ReferenceData.DISCOUNTS.FIVE_DORITOS_FOR_THREE_POUNDS;
 import static com.jksoftware.data.ReferenceData.DISCOUNTS.THREE_COKE_FOR_TWO;
 import static com.jksoftware.data.ReferenceData.ITEMS.*;
+import com.jksoftware.exception.InvalidDiscountType;
 import com.jksoftware.model.Price;
+import com.jksoftware.model.discount.Discount;
 import com.jksoftware.model.item.EnumerableOrderItem;
+import com.jksoftware.model.item.Item;
 import com.jksoftware.model.item.OrderItem;
 import com.jksoftware.service.impl.DiscountServiceImpl;
 import java.util.List;
@@ -48,6 +51,24 @@ public class DiscountServiceTest {
 		orderItems = newArrayList();
 		final Price totalDiscount = discountService.calculateDiscount(orderItems, FIVE_DORITOS_FOR_THREE_POUNDS);
 		assertThat(totalDiscount.toString(), is("£0.00"));
+	}
+
+	@Test(expected = InvalidDiscountType.class)
+	public void testInvalidDiscount() {
+		final Discount invalidDiscount = new Discount() {
+			@Override
+			public Item getDiscountedItem() {
+				return null;
+			}
+
+			@Override
+			public Price getDiscountValue() {
+				return null;
+			}
+		};
+
+		orderItems = newArrayList();
+		discountService.calculateDiscount(orderItems, invalidDiscount);
 	}
 
 }

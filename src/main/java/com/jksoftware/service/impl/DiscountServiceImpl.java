@@ -1,23 +1,21 @@
 package com.jksoftware.service.impl;
 
+import com.jksoftware.exception.InvalidDiscountType;
 import com.jksoftware.model.Price;
 import com.jksoftware.model.discount.Discount;
 import com.jksoftware.model.discount.NItemsDiscount;
 import com.jksoftware.model.item.EnumerableOrderItem;
 import com.jksoftware.model.item.OrderItem;
 import com.jksoftware.service.DiscountService;
-import static java.text.MessageFormat.format;
 import java.util.List;
 
 public class DiscountServiceImpl implements DiscountService {
-
 	@Override
 	public Price calculateDiscount(final List<OrderItem> orderItems, final Discount discount) {
 		if (discount instanceof NItemsDiscount) {
 			return calculateNItemsDiscount(orderItems, (NItemsDiscount) discount);
 		}
-
-		throw new RuntimeException(format("Invalid Discount Type ", discount.getClass().getName()));
+		throw new InvalidDiscountType(discount);
 	}
 
 	private Price calculateNItemsDiscount(final List<OrderItem> orderItems, final NItemsDiscount discount) {

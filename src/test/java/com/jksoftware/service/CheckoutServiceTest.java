@@ -20,7 +20,6 @@ public class CheckoutServiceTest {
 	@Test
 	public void testCheckoutEmptyOrder() {
 		final CheckoutService checkoutService = new CheckoutServiceImpl(newArrayList(), null);
-
 		final Receipt receipt = checkoutService.checkout();
 		assertPrice(receipt, "£0.00", "£0.00");
 	}
@@ -28,8 +27,8 @@ public class CheckoutServiceTest {
 	@Test
 	public void testCheckoutSingleEnumerableOrder() {
 		final List<OrderItem> enumerableOrderItems = newArrayList(new EnumerableOrderItem(COCA_COLA, 2));
-		final CheckoutService checkoutService = new CheckoutServiceImpl(enumerableOrderItems, null);
 
+		final CheckoutService checkoutService = new CheckoutServiceImpl(enumerableOrderItems, null);
 		final Receipt receipt = checkoutService.checkout();
 		assertPrice(receipt, "£6.00", "£6.00");
 	}
@@ -37,8 +36,8 @@ public class CheckoutServiceTest {
 	@Test
 	public void testCheckoutSingleMeasurableOrder() {
 		final List<OrderItem> enumerableOrderItems = newArrayList(new MeasurableOrderItem(BANANAS, 0.4));
-		final CheckoutService checkoutService = new CheckoutServiceImpl(enumerableOrderItems, null);
 
+		final CheckoutService checkoutService = new CheckoutServiceImpl(enumerableOrderItems, null);
 		final Receipt receipt = checkoutService.checkout();
 		assertPrice(receipt, "£0.60", "£0.60");
 	}
@@ -48,8 +47,8 @@ public class CheckoutServiceTest {
 		final List<OrderItem> enumerableOrderItems = newArrayList(
 				new EnumerableOrderItem(COCA_COLA, 2),
 				new MeasurableOrderItem(BANANAS, 0.4));
-		final CheckoutService checkoutService = new CheckoutServiceImpl(enumerableOrderItems, null);
 
+		final CheckoutService checkoutService = new CheckoutServiceImpl(enumerableOrderItems, null);
 		final Receipt receipt = checkoutService.checkout();
 		assertPrice(receipt, "£6.60", "£6.60");
 	}
@@ -62,8 +61,8 @@ public class CheckoutServiceTest {
 				new EnumerableOrderItem(COCA_COLA, 2),
 				new MeasurableOrderItem(KIWIS, 0.8)
 		);
-		final CheckoutService checkoutService = new CheckoutServiceImpl(enumerableOrderItems, null);
 
+		final CheckoutService checkoutService = new CheckoutServiceImpl(enumerableOrderItems, null);
 		final Receipt receipt = checkoutService.checkout();
 		assertPrice(receipt, "£14.60", "£14.60");
 	}
@@ -73,8 +72,8 @@ public class CheckoutServiceTest {
 		final List<OrderItem> enumerableOrderItems = newArrayList(
 				new EnumerableOrderItem(COCA_COLA, 7)
 		);
-		final CheckoutService checkoutService = new CheckoutServiceImpl(enumerableOrderItems, newArrayList(THREE_COKE_FOR_TWO));
 
+		final CheckoutService checkoutService = new CheckoutServiceImpl(enumerableOrderItems, newArrayList(THREE_COKE_FOR_TWO));
 		final Receipt receipt = checkoutService.checkout();
 		assertPrice(receipt, "£21.00", "£15.00");
 	}
@@ -84,8 +83,8 @@ public class CheckoutServiceTest {
 		final List<OrderItem> enumerableOrderItems = newArrayList(
 				new EnumerableOrderItem(DORITOS, 6)
 		);
-		final CheckoutService checkoutService = new CheckoutServiceImpl(enumerableOrderItems, newArrayList(FIVE_DORITOS_FOR_THREE_POUNDS));
 
+		final CheckoutService checkoutService = new CheckoutServiceImpl(enumerableOrderItems, newArrayList(FIVE_DORITOS_FOR_THREE_POUNDS));
 		final Receipt receipt = checkoutService.checkout();
 		assertPrice(receipt, "£6.00", "£4.00");
 	}
@@ -99,9 +98,9 @@ public class CheckoutServiceTest {
 				new EnumerableOrderItem(DORITOS, 6),
 				new MeasurableOrderItem(KIWIS, 0.8)
 		);
+
 		final CheckoutService checkoutService = new CheckoutServiceImpl(enumerableOrderItems,
 				newArrayList(THREE_COKE_FOR_TWO, FIVE_DORITOS_FOR_THREE_POUNDS));
-
 		final Receipt receipt = checkoutService.checkout();
 		assertPrice(receipt, "£35.60", "£24.60");
 	}
