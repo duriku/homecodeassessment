@@ -4,14 +4,19 @@ import com.jksoftware.model.Price;
 
 public class Item {
 
-	private String name;
-	private Price price;
+    private String name;
+    private Price price;
 
-	public String getName() {
-		return name;
-	}
+    public Item(final String name, final Price price) {
+        this.name = name;
+        this.price = price;
+    }
 
-	public Price getPrice() {
-		return price;
-	}
+    public String getName() {
+        return name;
+    }
+
+    public Price getPrice() {
+        return price;
+    }
 }

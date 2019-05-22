@@ -3,8 +3,7 @@ package com.jksoftware.model.item;
 import com.jksoftware.model.Price;
 
 public abstract class OrderItem {
+    protected Item item;
 
-	private Item item;
-
-	public abstract Price getCost();
+    public abstract Price getCost();
 }

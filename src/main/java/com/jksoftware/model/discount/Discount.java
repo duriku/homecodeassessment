@@ -4,9 +4,9 @@ import com.jksoftware.model.Price;
 import com.jksoftware.model.item.Item;
 
 public interface Discount {
-	Item getDiscountedItem();
+    Item getDiscountedItem();
 
-	Price getDiscountValue();
+    Price getDiscountValue();
 
-	String getDiscountName();
+    String getDiscountName();
 }
