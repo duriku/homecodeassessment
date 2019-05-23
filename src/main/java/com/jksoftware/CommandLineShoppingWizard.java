@@ -30,7 +30,7 @@ class CommandLineShoppingWizard {
 		String input;
 		do {
 			System.out.println("Type a product name from the list or type 'checkout' once you are done: ");
-			input = readLine();
+			input = readInputFromUser();
 			final Item item = ITEMS_MAP.get(input.toUpperCase());
 			if (nonNull(item) && !input.equalsIgnoreCase(CHECKOUT)) {
 				int amount = getAmountFromConsole();
@@ -85,7 +85,7 @@ class CommandLineShoppingWizard {
 			System.out.println("Type how much you want from it (for fruits provide it in grams)");
 
 			try {
-				amount = Integer.parseInt(readLine());
+				amount = Integer.parseInt(readInputFromUser());
 			} catch (NumberFormatException ex) {
 				System.out.println("Invalid Amount, please provide an integer!");
 			}
@@ -93,12 +93,12 @@ class CommandLineShoppingWizard {
 		return amount;
 	}
 
-	private String readLine() {
+	private String readInputFromUser() {
 		String line = "";
 		try {
 			line = reader.readLine();
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.err.println(e);
 		}
 		return line;
 	}

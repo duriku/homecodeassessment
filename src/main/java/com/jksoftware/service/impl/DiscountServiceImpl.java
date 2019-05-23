@@ -15,7 +15,7 @@ public class DiscountServiceImpl implements DiscountService {
 		if (discount instanceof NItemsDiscount) {
 			return calculateNItemsDiscount(orderItems, (NItemsDiscount) discount);
 		}
-		throw new InvalidDiscountType(discount);
+		throw new InvalidDiscountType();
 	}
 
 	private Price calculateNItemsDiscount(final List<OrderItem> orderItems, final NItemsDiscount discount) {
